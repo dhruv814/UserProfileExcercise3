@@ -1,17 +1,14 @@
 package com.mycompany.hibernate_userprofile_example;
 
-import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 /**
  *
  * @author dhruv
@@ -96,7 +93,7 @@ public class UserProfile{
 
     @Override
     public String toString() {
-        return "UserProfile{" + "id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + '}';
+        return ReflectionToStringBuilder.toString(this);
     }
 
 }

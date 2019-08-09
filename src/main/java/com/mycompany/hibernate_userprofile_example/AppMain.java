@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import static org.hibernate.bytecode.BytecodeLogger.LOGGER;
 
 /**
  *
@@ -27,6 +28,7 @@ public class AppMain {
     public void retriveData() {
         TypedQuery<UserProfile> q = em.createQuery("SELECT u FROM UserProfile u", UserProfile.class);
         List<UserProfile> results = q.getResultList();
+        LOGGER.info(results);
     }
 
     public void storeData() {
@@ -48,7 +50,7 @@ public class AppMain {
             em.getTransaction().commit();
 
         } catch (Exception e) {
-            System.out.println(e);
+            LOGGER.info(e);
         }
 
     }
